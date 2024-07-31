@@ -1,0 +1,71 @@
+<odoo>
+    <record id="view_article_type_form" model="ir.ui.view">
+        <field name="name">article.type.form</field>
+        <field name="model">inventory.article.type</field>
+        <field name="arch" type="xml">
+            <form string="Article Type">
+                <group>
+                    <field name="name"/>
+                    <field name="block"/>
+                    <field name="room"/>
+                    <field name="year_received"/>
+                </group>
+                <button string="Generate Ticket" type="object" name="generate_ticket"/>
+                <field name="ticket_pdf" filename="ticket_filename"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_article_type_tree" model="ir.ui.view">
+        <field name="name">article.type.tree</field>
+        <field name="model">inventory.article.type</field>
+        <field name="arch" type="xml">
+            <tree string="Article Types">
+                <field name="name"/>
+                <field name="block"/>
+                <field name="room"/>
+                <field name="year_received"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Graph view -->
+    <record id="view_article_type_graph" model="ir.ui.view">
+        <field name="name">article.type.graph</field>
+        <field name="model">inventory.article.type</field>
+        <field name="arch" type="xml">
+            <graph string="Article Types">
+                <field name="name" type="row"/>
+                <field name="id" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot view -->
+    <record id="view_article_type_pivot" model="ir.ui.view">
+        <field name="name">article.type.pivot</field>
+        <field name="model">inventory.article.type</field>
+        <field name="arch" type="xml">
+            <pivot string="Article Types">
+                <field name="name" type="row"/>
+                <field name="block" type="row"/>
+                <field name="room" type="row"/>
+                <field name="id" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Action to open views -->
+    <record id="action_article_type" model="ir.actions.act_window">
+        <field name="name">Article Types</field>
+        <field name="res_model">inventory.article.type</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+    </record>
+
+    <!-- Menu item -->
+    <menuitem id="menu_inventory_article_type"
+              name="Article Types"
+              parent="menu_inventory_root"
+              action="action_article_type"
+              sequence="10"/>
+</odoo>
