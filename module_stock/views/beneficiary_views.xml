@@ -1,0 +1,47 @@
+<odoo>
+    <!-- Form View -->
+    <record id="view_school_beneficiary_form" model="ir.ui.view">
+        <field name="name">school.beneficiary1.form</field>
+        <field name="model">school.beneficiary1</field>
+        <field name="arch" type="xml">
+            <form string="Beneficiary">
+                <sheet>
+                    <group>
+                        <field name="purchase_order_id"/>
+                        <field name="name"/>
+                        <field name="beneficiary_line_ids">
+                            <tree string="Beneficiary Lines">
+                                <field name="product_id"/>
+                                <field name="quantity"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_school_beneficiary_tree" model="ir.ui.view">
+        <field name="name">school.beneficiary1.tree</field>
+        <field name="model">school.beneficiary1</field>
+        <field name="arch" type="xml">
+            <tree string="Beneficiaries">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_school_beneficiary" model="ir.actions.act_window">
+        <field name="name">Beneficiaries</field>
+        <field name="res_model">school.beneficiary1</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_school_beneficiary"
+              name="Beneficiaries"
+              parent="menu_school_root"
+              action="action_school_beneficiary"/>
+</odoo>

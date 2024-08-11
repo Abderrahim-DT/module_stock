@@ -1,0 +1,31 @@
+<odoo>
+    <!-- Action for Report by Purchase ID -->
+    <record id="action_report_purchase_id" model="ir.actions.report">
+        <field name="name">Report by Purchase ID</field>
+        <field name="model">school.purchase.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_stock_management.report_purchase_id</field>
+        <field name="report_file">school_stock_management.report_purchase_id</field>
+        <field name="print_report_name">"Report by Purchase ID - %s"</field>
+    </record>
+
+    <!-- Action for Report by Article -->
+    <record id="action_report_article" model="ir.actions.report">
+        <field name="name">Report by Article</field>
+        <field name="model">product.product</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_stock_management.report_article</field>
+        <field name="report_file">school_stock_management.report_article</field>
+        <field name="print_report_name">"Report by Article - %s"</field>
+    </record>
+
+    <!-- Action for Report by Beneficiary -->
+    <record id="action_report_beneficiary" model="ir.actions.report">
+        <field name="name">Report by Beneficiary</field>
+        <field name="model">school.beneficiary1</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_stock_management.report_beneficiary</field>
+        <field name="report_file">school_stock_management.report_beneficiary</field>
+        <field name="print_report_name">"Report by Beneficiary - %s"</field>
+    </record>
+</odoo>

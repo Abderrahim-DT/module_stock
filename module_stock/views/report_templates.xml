@@ -1,0 +1,79 @@
+<!-- school_stock_management/reports/report_templates.xml -->
+<odoo>
+    <data>
+        <template id="report_purchase_id">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <h2>Purchase Order: <t t-esc="doc.name"/></h2>
+                    <p>Date: <t t-esc="doc.date_order"/></p>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Article</th>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="doc.order_line_ids" t-as="line">
+                                <td><t t-esc="line.product_id.name"/></td>
+                                <td><t t-esc="line.quantity"/></td>
+                                <td><t t-esc="line.price_unit"/></td>
+                                <td><t t-esc="line.subtotal"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_article">
+            <t t-call="web.html_container">
+                <h2>Article: <t t-esc="article_name"/></h2>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Purchase Order</th>
+                            <th>Quantity Purchased</th>
+                            <th>Quantity in Stock</th>
+                            <th>Quantity Distributed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="docs" t-as="doc">
+                            <td><t t-esc="doc.purchase_order_id.name"/></td>
+                            <td><t t-esc="doc.quantity"/></td>
+                            <td><t t-esc="doc.quantity_in_stock"/></td>
+                            <td><t t-esc="doc.quantity_distributed"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </t>
+        </template>
+
+        <template id="report_beneficiary">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <h2>Beneficiary: <t t-esc="doc.name"/></h2>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Article</th>
+                                <th>Quantity Received</th>
+                                <th>Purchase Order</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="doc.beneficiary_line_ids" t-as="line">
+                                <td><t t-esc="line.product_id.name"/></td>
+                                <td><t t-esc="line.quantity"/></td>
+                                <td><t t-esc="line.purchase_order_id.name"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

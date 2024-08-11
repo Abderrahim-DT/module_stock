@@ -1,0 +1,12 @@
+<odoo>
+    <!-- Menu root definition if not defined elsewhere -->
+    <menuitem id="menu_school_root" name="School Management"/>
+
+    <!-- Report Menu -->
+    <menuitem id="menu_school_reports" name="Reports" parent="menu_school_root"/>
+
+    <!-- Submenus for different reports -->
+    <menuitem id="menu_school_report_by_purchase" name="Report by Purchase" parent="menu_school_reports" action="action_report_purchase_id"/>
+    <menuitem id="menu_school_report_by_article" name="Report by Article" parent="menu_school_reports" action="action_report_article"/>
+    <menuitem id="menu_school_report_by_beneficiary" name="Report by Beneficiary" parent="menu_school_reports" action="action_report_beneficiary"/>
+</odoo>

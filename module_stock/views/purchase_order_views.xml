@@ -1,0 +1,49 @@
+<odoo>
+    <record id="view_school_purchase_order_form" model="ir.ui.view">
+        <field name="name">school.purchase.order.form</field>
+        <field name="model">school.purchase.order</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Order">
+                <header>
+                    <field name="name"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="date_order"/>
+                        <field name="order_line_ids" widget="one2many_list">
+                            <tree string="Order Lines">
+                                <field name="product_id"/>
+                                <field name="quantity"/>
+                                <field name="price_unit"/>
+                                <field name="subtotal"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_school_purchase_order_tree" model="ir.ui.view">
+        <field name="name">school.purchase.order.tree</field>
+        <field name="model">school.purchase.order</field>
+        <field name="arch" type="xml">
+            <tree string="Purchase Orders">
+                <field name="name"/>
+                <field name="date_order"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for Purchase Order -->
+    <record id="action_school_purchase_order" model="ir.actions.act_window">
+        <field name="name">Purchase Orders</field>
+        <field name="res_model">school.purchase.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_school_root" name="School Management"/>
+
+    <menuitem id="menu_school_purchase_order" name="Purchase Orders" parent="menu_school_root" action="action_school_purchase_order"/>
+</odoo>
